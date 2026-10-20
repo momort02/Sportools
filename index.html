@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101310">
+    <meta name="description" content="Un chronomètre Tabata simple pour rythmer vos entraînements.">
+    <title>Tabata — votre chrono d'entraînement</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Tabata, accueil">
+          <span class="brand-mark" aria-hidden="true">T</span>
+          <span>TABATA<span class="brand-dot">.</span></span>
+        </a>
+        <span class="topbar-note"><span class="status-dot"></span> À TON RYTHME</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">LE CHRONO QUI VOUS ACCOMPAGNE</p>
+        <h1 id="page-title">Prêt·e à <span>transpirer&nbsp;?</span></h1>
+        <p class="intro-copy">Lancez votre séance. On s’occupe du tempo.</p>
+      </section>
+
+      <section class="timer-card" aria-label="Chronomètre Tabata">
+        <div class="timer-topline">
+          <span class="phase-label" id="phase-label">PRÊT·E ?</span>
+          <span class="round-label" id="round-label">TOUR <span id="current-round">1</span> / <span id="round-total">8</span></span>
+        </div>
+
+        <div class="timer-display" id="timer-display" aria-live="off">00:20</div>
+        <p class="next-label" id="next-label">Configurez votre séance puis appuyez sur démarrer</p>
+
+        <div class="progress-track" role="progressbar" aria-label="Progression de l’intervalle" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-track">
+          <span class="progress-fill" id="progress-fill"></span>
+        </div>
+
+        <div class="timer-actions">
+          <button class="button button-secondary" id="reset-button" type="button" aria-label="Remettre le chrono à zéro">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 2.64-6.36L3 8m0-5v5h5"/></svg>
+          </button>
+          <button class="button button-primary" id="start-button" type="button">
+            <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 12 7-12 7z"/></svg>
+            <span>Démarrer</span>
+          </button>
+          <button class="button button-secondary sound-button" id="sound-button" type="button" aria-label="Désactiver les sons" aria-pressed="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4 4a5 5 0 0 1 0 6m3-9a9 9 0 0 1 0 12"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="settings-card" aria-labelledby="settings-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">VOTRE SÉANCE</p>
+            <h2 id="settings-title">Réglages</h2>
+          </div>
+          <span class="duration-badge" id="duration-badge">4 min 00</span>
+        </div>
+
+        <div class="settings-grid">
+          <label class="setting">
+            <span class="setting-name"><span class="setting-icon effort-icon">↗</span> Effort</span>
+            <span class="stepper">
+              <button type="button" data-setting="work" data-delta="-5" aria-label="Réduire l'effort de 5 secondes">−</button>
+              <span><strong id="work-value">20</strong><small>sec</small></span>
+              <button type="button" data-setting="work" data-delta="5" aria-label="Augmenter l'effort de 5 secondes">+</button>
+            </span>
+          </label>
+
+          <label class="setting">
+            <span class="setting-name"><span class="setting-icon rest-icon">↘</span> Récupération</span>
+            <span class="stepper">
+              <button type="button" data-setting="rest" data-delta="-5" aria-label="Réduire la récupération de 5 secondes">−</button>
+              <span><strong id="rest-value">10</strong><small>sec</small></span>
+              <button type="button" data-setting="rest" data-delta="5" aria-label="Augmenter la récupération de 5 secondes">+</button>
+            </span>
+          </label>
+
+          <label class="setting">
+            <span class="setting-name"><span class="setting-icon rounds-icon">⟳</span> Nombre de tours</span>
+            <span class="stepper">
+              <button type="button" data-setting="rounds" data-delta="-1" aria-label="Retirer un tour">−</button>
+              <span><strong id="rounds-value">8</strong><small>tours</small></span>
+              <button type="button" data-setting="rounds" data-delta="1" aria-label="Ajouter un tour">+</button>
+            </span>
+          </label>
+        </div>
+        <p class="settings-hint">Les réglages sont verrouillés pendant la séance.</p>
+      </section>
+
+      <footer class="footer">
+        <span>20 SEC D’EFFORT</span><span class="footer-separator">·</span><span>10 SEC DE RÉCUP</span><span class="footer-separator">·</span><span>À VOUS DE JOUER</span>
+      </footer>
+    </main>
+  </body>
+</html>
